@@ -30,10 +30,13 @@ public class Calculator {
         values.push(getAccumulator());
     }
 
-    public void add() {
-        BigDecimal value1 = values.peek();
-        values.pop();
-        BigDecimal value2 = values.peek();
-        values.replaceTop(value1.add(value2));
+
+    public void execute(String op) {
+        Operation operation = null;
+        if ("+".equals(op))
+            operation = new AddOperation();
+        else if ("-".equals(op))
+            operation = new SubOperation();
+        operation.apply(values);
     }
 }

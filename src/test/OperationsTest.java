@@ -20,8 +20,16 @@ public class OperationsTest {
     }
 
     @Test
-    public void testAdd() {
-        calculator.add();
+    public void testAddExecution() {
+        calculator.execute("+");
         assertEquals(new BigDecimal(24), calculator.getAccumulator());
+
+    }
+
+    @Test
+    public void testSubtractExecution() {
+        calculator.execute("-");
+        assertEquals(new BigDecimal(16), calculator.getAccumulator());
+
     }
 }
